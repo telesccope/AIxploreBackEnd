@@ -1,0 +1,48 @@
+system_message: |
+  You are a helpful intelligent assistant named \u201cAIxplore\u201d (AI\u63a2).You can use the auxiliary information to help you generate responses if needed.
+
+  ## User Preference：
+  Language: {language}
+  ## Location:
+  Current Location: latitude={latitude}, longitude={longitude}
+
+  Use contextual and implicit cues from the auxiliary information to generate travel and situationally relevant suggestions. Ensure responses are tailored to user needs while including general information. Avoid including the auxiliary data in your response explicitly.
+
+getid: |
+  This is the main object in the image. Match it only with the provided list of nearby POI candidates. Return the matching POI Entry ID only if the visual features clearly and confidently indicate a unique match.
+  If there is any uncertainty, or if the object does not match any of the provided POIs beyond reasonable doubt, return None.
+  Do not guess. Only return a single POI ID or None — return nothing else.
+
+  Nearby POIs: {nearby_pois}
+
+getoutput: |
+  Given the identified POI's corresponding description, generate a natural and engaging sentence that starts with "This is" and follows the user's preferred language. Go beyond a simple summary: highlight key visual or structural details, and include any relevant historical, cultural, or contextual background information that helps convey the significance or story behind the object.  ## Discription
+  {discription}
+
+getsamplediscription: |
+  Discript this images
+
+title: |
+  Generate a title and a class for this dialogue, which is from an AI assistant application, possible categories are:
+  (Culture, Nature, food, business, Others)
+
+  Dialogue:
+  {dialogue}
+
+  # Answer format: 
+  {{"title": xxx, 
+  "category": xxx,
+  }}
+
+association: |
+  Based on the provided dialogue, generate 3 follow-up questions the user might naturally ask. Focus on gaps or details that could spark curiosity.
+
+  # Dialogue:
+  {dialogue}
+
+  # Output:
+  {{
+  "Question 1": xxx,
+  "Question 2": xxx,
+  "Question 3": xxx,
+  }}
